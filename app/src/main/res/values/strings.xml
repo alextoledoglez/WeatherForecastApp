@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Weather Forecast</string>
+    <string name="search">Search</string>
+    <string name="humidity_title">Humidity:</string>
+    <string name="win_title">Win:</string>
+
+    <string name="enter_valid_place_message">You must enter some valid place</string>
+    <string name="search_query_hint">Type places to search</string>
+
+    <string name="ok">OK</string>
+    <string name="cancel">Cancel</string>
+    <string name="success">Success!</string>
+
+    <string name="location_permission_title">Location Permission</string>
+    <string name="location_permission_message">Location permission needed!</string>
+    <string name="permission_denied_by_user_message">Permission has been denied by user</string>
+
+    <string name="tools_temperature_value">25°</string>
+    <string name="tools_description_value">Clear with cloudy intervals</string>
+    <string name="tools_location_value">Manaus, BR</string>
+    <string name="tools_formatted_date_value">Thursday, Aug 8 2020 01:00:00</string>
+    <string name="tools_humidity_value">89%</string>
+    <string name="tools_win_value">8 km/h</string>
+</resources>

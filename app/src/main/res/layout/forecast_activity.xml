@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center"
+    android:foregroundGravity="fill"
+    tools:context=".ui.main.ForecastActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:background="@color/colorPrimary"
+            android:orientation="horizontal">
+
+            <SearchView
+                android:id="@+id/locationSearchView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/smallMargin"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:layout_marginBottom="@dimen/smallMargin"
+                android:layout_weight="@dimen/fullWeight"
+                android:background="@color/colorWhite">
+
+            </SearchView>
+
+            <ImageButton
+                android:id="@+id/checkImageButton"
+                android:layout_width="@dimen/imageButtonSize"
+                android:layout_height="match_parent"
+                android:layout_marginTop="@dimen/smallMargin"
+                android:layout_marginEnd="@dimen/smallMargin"
+                android:layout_marginBottom="@dimen/smallMargin"
+                android:background="@color/colorWhite"
+                android:src="@drawable/ic_check_button" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/cardsLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/weatherCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallMargin"
+                android:orientation="vertical"
+                app:cardBackgroundColor="@color/colorSecondaryLight"
+                app:cardElevation="@dimen/cardElevation"
+                app:cardUseCompatPadding="true"
+                app:contentPadding="@dimen/contentPadding">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:id="@+id/weatherImageView"
+                            android:layout_width="@dimen/maxImageSize"
+                            android:layout_height="@dimen/maxImageSize"
+                            android:layout_margin="@dimen/smallMargin"
+                            android:layout_weight="@dimen/fullWeight"
+                            android:scaleType="fitEnd" />
+
+                        <TextView
+                            android:id="@+id/temperatureTextView"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/smallMargin"
+                            android:layout_weight="@dimen/fullWeight"
+                            android:textSize="@dimen/maxTextSize"
+                            android:textStyle="bold"
+                            tools:text="@string/tools_temperature_value" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/descriptionTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/smallMargin"
+                        android:textAlignment="center"
+                        tools:text="@string/tools_description_value" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/smallMargin"
+                            android:layout_weight="@dimen/fullWeight"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/locationTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/smallMargin"
+                                android:textAlignment="textEnd"
+                                android:textSize="@dimen/middleTextSize"
+                                android:textStyle="bold"
+                                tools:text="@string/tools_location_value" />
+
+                            <TextView
+                                android:id="@+id/dateTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/smallMargin"
+                                android:textAlignment="textEnd"
+                                tools:text="@string/tools_formatted_date_value" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="@dimen/smallMargin"
+                            android:layout_weight="@dimen/fullWeight"
+                            android:baselineAligned="false"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/humidityTitleTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/smallMargin"
+                                    android:layout_weight="@dimen/noneWeight"
+                                    android:text="@string/humidity_title"
+                                    android:textSize="@dimen/minTextSize"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/humidityValueTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/smallMargin"
+                                    android:layout_weight="@dimen/fullWeight"
+                                    tools:text="@string/tools_humidity_value" />
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:id="@+id/winTitleTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/smallMargin"
+                                    android:layout_weight="@dimen/noneWeight"
+                                    android:text="@string/win_title"
+                                    android:textSize="@dimen/minTextSize"
+                                    android:textStyle="bold" />
+
+                                <TextView
+                                    android:id="@+id/winValueTextView"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_margin="@dimen/smallMargin"
+                                    android:layout_weight="@dimen/fullWeight"
+                                    tools:text="@string/tools_win_value" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/forecastRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="@dimen/smallMargin"
+                android:background="@color/colorSecondaryLight"
+                tools:listitem="@layout/recycler_item" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorPrimary"
+        tools:targetApi="lollipop" />
+
+</FrameLayout>

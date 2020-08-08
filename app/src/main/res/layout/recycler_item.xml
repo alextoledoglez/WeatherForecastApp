@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="50dp"
+    android:layout_gravity="center_horizontal">
+
+    <TextView
+        android:id="@+id/forecastDateTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:textAlignment="center"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        tools:text="MONDAY" />
+
+    <ImageView
+        android:id="@+id/forecastImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/forecastTemperatureTextView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_weight="1"
+        android:gravity="center_horizontal|center_vertical"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        tools:text="25°" />
+</LinearLayout>
