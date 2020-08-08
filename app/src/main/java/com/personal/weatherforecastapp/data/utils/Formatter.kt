@@ -27,7 +27,7 @@ object Formatter {
         val formatter = SimpleDateFormat("yyyy-M-dd hh:mm:ss", locale)
         val date = formatter.parse(dateStr)
         date?.let {
-            return SimpleDateFormat("E, MMM d yyyy  hh:mm:ss", locale)
+            return SimpleDateFormat("E, MMM d yyyy hh:mm:ss", locale)
                 .format(date)
         }
         return ""

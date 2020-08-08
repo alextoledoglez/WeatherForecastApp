@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/smallMargin"
                 android:orientation="vertical"
-                app:cardBackgroundColor="@color/colorSecondaryLight"
+                app:cardBackgroundColor="@color/colorSecondary"
                 app:cardElevation="@dimen/cardElevation"
                 app:cardUseCompatPadding="true"
                 app:contentPadding="@dimen/contentPadding">
@@ -68,6 +68,25 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
+                    <TextView
+                        android:id="@+id/locationTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/smallMargin"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/middleTextSize"
+                        android:textStyle="bold"
+                        tools:text="@string/tools_location_value" />
+
+                    <TextView
+                        android:id="@+id/dateTextView"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/smallMargin"
+                        android:textAlignment="center"
+                        android:textSize="@dimen/middleTextSize"
+                        tools:text="@string/tools_formatted_date_value" />
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -75,68 +94,29 @@
 
                         <ImageView
                             android:id="@+id/weatherImageView"
-                            android:layout_width="@dimen/maxImageSize"
-                            android:layout_height="@dimen/maxImageSize"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_margin="@dimen/smallMargin"
-                            android:layout_weight="@dimen/fullWeight"
-                            android:scaleType="fitEnd" />
+                            android:layout_weight="2"
+                            android:scaleType="fitCenter" />
 
                         <TextView
                             android:id="@+id/temperatureTextView"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
                             android:layout_margin="@dimen/smallMargin"
-                            android:layout_weight="@dimen/fullWeight"
+                            android:layout_weight="2"
+                            android:gravity="center"
+                            android:textAlignment="gravity"
                             android:textSize="@dimen/maxTextSize"
                             android:textStyle="bold"
                             tools:text="@string/tools_temperature_value" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:id="@+id/descriptionTextView"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_margin="@dimen/smallMargin"
-                        android:textAlignment="center"
-                        tools:text="@string/tools_description_value" />
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_margin="@dimen/smallMargin"
-                            android:layout_weight="@dimen/fullWeight"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:id="@+id/locationTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/smallMargin"
-                                android:textAlignment="textEnd"
-                                android:textSize="@dimen/middleTextSize"
-                                android:textStyle="bold"
-                                tools:text="@string/tools_location_value" />
-
-                            <TextView
-                                android:id="@+id/dateTextView"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_margin="@dimen/smallMargin"
-                                android:textAlignment="textEnd"
-                                tools:text="@string/tools_formatted_date_value" />
-
-                        </LinearLayout>
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_margin="@dimen/smallMargin"
-                            android:layout_weight="@dimen/fullWeight"
+                            android:layout_weight="1"
                             android:baselineAligned="false"
                             android:orientation="vertical">
 
@@ -147,20 +127,22 @@
 
                                 <TextView
                                     android:id="@+id/humidityTitleTextView"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/smallMargin"
-                                    android:layout_weight="@dimen/noneWeight"
+                                    android:layout_weight="1"
                                     android:text="@string/humidity_title"
+                                    android:textAlignment="textEnd"
                                     android:textSize="@dimen/minTextSize"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/humidityValueTextView"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/smallMargin"
-                                    android:layout_weight="@dimen/fullWeight"
+                                    android:layout_weight="1"
+                                    android:textAlignment="textStart"
                                     tools:text="@string/tools_humidity_value" />
                             </LinearLayout>
 
@@ -171,22 +153,33 @@
 
                                 <TextView
                                     android:id="@+id/winTitleTextView"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/smallMargin"
-                                    android:layout_weight="@dimen/noneWeight"
+                                    android:layout_weight="1"
                                     android:text="@string/win_title"
+                                    android:textAlignment="textEnd"
                                     android:textSize="@dimen/minTextSize"
                                     android:textStyle="bold" />
 
                                 <TextView
                                     android:id="@+id/winValueTextView"
-                                    android:layout_width="wrap_content"
+                                    android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:layout_margin="@dimen/smallMargin"
-                                    android:layout_weight="@dimen/fullWeight"
+                                    android:layout_weight="1"
                                     tools:text="@string/tools_win_value" />
                             </LinearLayout>
+
+                            <TextView
+                                android:id="@+id/descriptionTextView"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_margin="@dimen/smallMargin"
+                                android:textAlignment="center"
+                                android:textSize="@dimen/minTextSize"
+                                tools:text="@string/tools_description_value" />
+
                         </LinearLayout>
 
                     </LinearLayout>
@@ -200,7 +193,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_margin="@dimen/smallMargin"
-                android:background="@color/colorSecondaryLight"
+                android:background="@color/colorSecondary"
                 tools:listitem="@layout/recycler_item" />
 
         </LinearLayout>

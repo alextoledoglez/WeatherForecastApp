@@ -5,6 +5,8 @@
 /.idea/libraries
 .DS_Store
 /build
+/.idea
+/.gradle
 /captures
 .externalNativeBuild
 .idea/vcs.xml

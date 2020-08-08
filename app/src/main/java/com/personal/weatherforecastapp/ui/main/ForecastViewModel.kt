@@ -3,9 +3,10 @@ package com.personal.weatherforecastapp.ui.main
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.personal.weatherforecastapp.data.service.RetrofitService
+import com.personal.weatherforecastapp.R
 import com.personal.weatherforecastapp.data.model.Weather
 import com.personal.weatherforecastapp.data.response.ForecastBodyResponse
+import com.personal.weatherforecastapp.data.service.RetrofitService
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -15,10 +16,10 @@ class ForecastViewModel() : ViewModel() {
     val weatherLiveData = MutableLiveData<List<Weather>>()
     val responseLiveData = MutableLiveData<String>()
 
-    fun getWeathers(queryStr: String) {
+    fun getForecasts(queryStr: String) {
         RetrofitService
             .apiService
-            .getWeathers(queryStr)
+            .getForecasts(queryStr)
             .enqueue(object : Callback<ForecastBodyResponse> {
                 override fun onResponse(
                     call: Call<ForecastBodyResponse>,
@@ -36,6 +37,11 @@ class ForecastViewModel() : ViewModel() {
                         weatherLiveData.value = weathers
                     }
                     responseLiveData.value = response.message()
+                    if (response.raw().cacheResponse() != null) {
+                        println(R.string.response_from_cache_message)
+                    } else if (response.raw().networkResponse() != null) {
+                        println(R.string.response_from_network_message)
+                    }
                 }
 
                 override fun onFailure(call: Call<ForecastBodyResponse>, t: Throwable) {

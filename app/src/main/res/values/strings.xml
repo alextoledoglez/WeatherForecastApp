@@ -2,7 +2,7 @@
     <string name="app_name">Weather Forecast</string>
     <string name="search">Search</string>
     <string name="humidity_title">Humidity:</string>
-    <string name="win_title">Win:</string>
+    <string name="win_title">Win speed:</string>
 
     <string name="enter_valid_place_message">You must enter some valid place</string>
     <string name="search_query_hint">Type places to search</string>
@@ -21,4 +21,7 @@
     <string name="tools_formatted_date_value">Thursday, Aug 8 2020 01:00:00</string>
     <string name="tools_humidity_value">89%</string>
     <string name="tools_win_value">8 km/h</string>
+
+    <string name="response_from_cache_message">Response from Cache</string>
+    <string name="response_from_network_message">Respond Network/server</string>
 </resources>

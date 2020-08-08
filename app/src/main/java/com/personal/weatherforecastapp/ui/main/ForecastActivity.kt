@@ -3,14 +3,15 @@ package com.personal.weatherforecastapp.ui.main
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.personal.weatherforecastapp.R
+import com.personal.weatherforecastapp.data.utils.CacheManager
 import com.personal.weatherforecastapp.data.utils.LocationPermissions
+import com.personal.weatherforecastapp.data.utils.ToastManager
 import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.forecast_activity.*
 
@@ -24,6 +25,8 @@ class ForecastActivity : AppCompatActivity() {
 
         progressBar.visibility = View.GONE
         cardsLinearLayout.visibility = View.GONE
+
+        CacheManager.initializeFrom(this)
         LocationPermissions.createInstanceFrom(this)
 
         locationSearchView.isIconifiedByDefault = false
@@ -61,7 +64,9 @@ class ForecastActivity : AppCompatActivity() {
                                 RecyclerView.VERTICAL,
                                 false
                             )
-                        adapter = ForecastAdapter(weathers)
+                        val weatherSubList = weathers
+                            .subList(1, weathers.size)
+                        adapter = ForecastAdapter(weatherSubList)
                     }
                     val weather = weathers[0]
                     Picasso.with(this)
@@ -77,31 +82,29 @@ class ForecastActivity : AppCompatActivity() {
             })
 
         viewModel.responseLiveData
-            .observe(this, Observer { errorResponse ->
-                val errorResponseMsg: String
-                if (errorResponse.isNotEmpty() && errorResponse == getString(R.string.ok)) {
-                    errorResponseMsg = getString(R.string.success)
+            .observe(this, Observer { responseMessage ->
+                val message: String
+                if (responseMessage.isNotEmpty() && responseMessage == getString(R.string.ok)) {
+                    message = getString(R.string.success)
                     cardsLinearLayout.visibility = View.VISIBLE
                 } else {
-                    errorResponseMsg = errorResponse
+                    message = responseMessage
                     cardsLinearLayout.visibility = View.GONE
                 }
                 progressBar.visibility = View.GONE
-                Toast.makeText(this, errorResponseMsg, Toast.LENGTH_SHORT)
-                    .show()
+                ToastManager.showShortText(this, message)
             })
 
         checkImageButton.setOnClickListener {
             val queryStr: String = locationSearchView.query.toString()
             if (queryStr.isEmpty()) {
-                Toast.makeText(
+                ToastManager.showShortText(
                     this,
-                    getString(R.string.enter_valid_place_message),
-                    Toast.LENGTH_SHORT
-                ).show()
+                    R.string.enter_valid_place_message
+                )
             } else {
                 progressBar.visibility = View.VISIBLE
-                viewModel.getWeathers(queryStr)
+                viewModel.getForecasts(queryStr)
             }
         }
     }
@@ -119,7 +122,7 @@ class ForecastActivity : AppCompatActivity() {
         when (requestCode) {
             LocationPermissions.getLocationPermissionId() -> {
                 if (LocationPermissions.isNotGranted(grantResults)) {
-                    println(R.string.permission_denied_by_user_message)
+                    ToastManager.showShortText(this, R.string.permission_denied_by_user_message)
                 } else {
                     LocationPermissions.setLocationQueryStringListenerFor(this)
                 }
