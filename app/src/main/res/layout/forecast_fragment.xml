@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.ForecastFragment">
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/lytSearchBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/svLocation"
+            android:layout_width="@dimen/none"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/smallMargin"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:layout_marginBottom="@dimen/smallMargin"
+            android:layout_weight="@dimen/fullWeight"
+            android:background="@color/colorWhite">
+
+        </androidx.appcompat.widget.SearchView>
+
+        <androidx.appcompat.widget.AppCompatImageButton
+            android:id="@+id/ibSearch"
+            android:layout_width="@dimen/imageButtonSize"
+            android:layout_height="match_parent"
+            android:layout_marginTop="@dimen/smallMargin"
+            android:layout_marginEnd="@dimen/smallMargin"
+            android:layout_marginBottom="@dimen/smallMargin"
+            android:background="@color/colorWhite"
+            android:src="@drawable/ic_check_button" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cvHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/smallMargin"
+        android:orientation="vertical"
+        app:cardBackgroundColor="@color/colorSecondary"
+        app:cardElevation="@dimen/cardElevation"
+        app:cardUseCompatPadding="true"
+        app:contentPadding="@dimen/contentPadding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/lytSearchBar">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallMargin"
+                android:textAlignment="center"
+                android:textSize="@dimen/middleTextSize"
+                android:textStyle="bold"
+                tools:text="@string/tools_location_value" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallMargin"
+                android:textAlignment="center"
+                android:textSize="@dimen/middleTextSize"
+                tools:text="@string/tools_formatted_date_value" />
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/ivWeather"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="2"
+                    android:scaleType="fitCenter" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvTemperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="2"
+                    android:gravity="center"
+                    android:textAlignment="gravity"
+                    android:textSize="@dimen/maxTextSize"
+                    android:textStyle="bold"
+                    tools:text="@string/tools_temperature_value" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHumidityTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="1"
+                    android:text="@string/humidity_title"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/minTextSize"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvHumidityValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="1"
+                    android:textAlignment="textStart"
+                    tools:text="@string/tools_humidity_value" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWindTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="1"
+                    android:text="@string/wind_title"
+                    android:textAlignment="textEnd"
+                    android:textSize="@dimen/minTextSize"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tvWindValue"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/smallMargin"
+                    android:layout_weight="1"
+                    tools:text="@string/tools_win_value" />
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/smallMargin"
+                android:textAlignment="center"
+                android:textSize="@dimen/minTextSize"
+                tools:text="@string/tools_description_value" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.cardview.widget.CardView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvWeathers"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/none"
+        android:layout_margin="@dimen/smallMargin"
+        android:background="@color/colorSecondary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvHeader"
+        tools:listitem="@layout/item_list_weather" />
+
+    <ProgressBar
+        android:id="@+id/pbForecast"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:indeterminate="true"
+        android:indeterminateTint="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cvHeader" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

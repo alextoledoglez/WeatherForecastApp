@@ -2,7 +2,7 @@
     <string name="app_name">Weather Forecast</string>
     <string name="search">Search</string>
     <string name="humidity_title">Humidity:</string>
-    <string name="win_title">Win speed:</string>
+    <string name="wind_title">Wind speed:</string>
 
     <string name="enter_valid_place_message">You must enter some valid place</string>
     <string name="search_query_hint">Type places to search</string>

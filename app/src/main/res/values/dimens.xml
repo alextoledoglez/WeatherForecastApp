@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <dimen name="none">0dp</dimen>
     <dimen name="smallMargin">5dp</dimen>
 
     <dimen name="noneWeight">0</dimen>
