@@ -2,13 +2,13 @@ package com.personal.weatherforecastapp.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class CityDetails (
+data class CityDetailsEntity(
     @SerializedName(value = "id")
     val id: Int,
     @SerializedName(value = "name")
     val name: String,
     @SerializedName(value = "coord")
-    val location: LocationDetails,
+    val location: LocationDetailsEntity,
     @SerializedName(value = "country")
     val country: String,
     @SerializedName(value = "population")

@@ -4,31 +4,31 @@ import com.google.gson.annotations.SerializedName
 
 data class WeatherEntity(
     @SerializedName(value = "coord")
-    val location: LocationDetails,
+    val location: LocationDetailsEntity,
 
     @SerializedName(value = "weather")
-    val weatherDetails: List<WeatherDetails>,
+    val weatherDetailEntities: List<WeatherDetailsEntity>,
 
     @SerializedName(value = "main")
-    val mainDetails: MainDetails,
+    val mainDetailsEntity: MainDetailsEntity,
 
     @SerializedName(value = "wind")
-    val windDetails: WinDetails,
+    val windDetails: WindDetailsEntity,
 
     @SerializedName(value = "clouds")
-    val cloudsDetails: CloudsDetails,
+    val cloudsDetailsEntity: CloudsDetailsEntity,
 
     @SerializedName(value = "rain")
-    val rainDetails: VolumeDetails,
+    val rainDetails: VolumeDetailsEntity,
 
     @SerializedName(value = "snow")
-    val snowDetails: VolumeDetails,
+    val snowDetails: VolumeDetailsEntity,
 
     @SerializedName(value = "dt")
     val dt: Long,
 
     @SerializedName(value = "sys")
-    val sysDetails: SysDetails,
+    val sysDetailsEntity: SysDetailsEntity,
 
     @SerializedName(value = "timezone")
     val timeZone: Long,

@@ -2,7 +2,7 @@ package com.personal.weatherforecastapp.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class WinDetails(
+data class WindDetailsEntity(
     @SerializedName(value = "speed")
     val speed: Double,
     @SerializedName(value = "deg")

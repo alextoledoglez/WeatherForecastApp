@@ -55,8 +55,8 @@ class ForecastFragment : BaseFragment<ForecastViewModel>() {
                     }
 
                     override fun onQueryTextChange(newText: String?): Boolean {
-                        pbForecast.visibility = View.GONE
                         cvHeader.visibility = View.GONE
+                        pbForecast.visibility = View.GONE
                         return false
                     }
                 })
@@ -95,6 +95,7 @@ class ForecastFragment : BaseFragment<ForecastViewModel>() {
 
     private fun updateHeader(weather: WeatherModel) {
         with(binding) {
+            cvHeader.visibility = View.VISIBLE
             Picasso.get()
                 .load(weather.imageSrc)
                 .into(binding.ivWeather)

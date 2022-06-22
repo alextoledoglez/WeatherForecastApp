@@ -2,7 +2,7 @@ package com.personal.weatherforecastapp.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class SysDetails(
+data class SysDetailsEntity(
     @SerializedName(value = "country")
     val country: String,
     @SerializedName(value = "sunrise")

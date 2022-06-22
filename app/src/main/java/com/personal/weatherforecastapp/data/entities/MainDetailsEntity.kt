@@ -2,7 +2,7 @@ package com.personal.weatherforecastapp.data.entities
 
 import com.google.gson.annotations.SerializedName
 
-data class MainDetails(
+data class MainDetailsEntity(
     @SerializedName(value = "temp")
     val temp: Double,
     @SerializedName(value = "feels_like")

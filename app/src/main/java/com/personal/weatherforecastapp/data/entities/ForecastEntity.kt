@@ -6,5 +6,5 @@ data class ForecastEntity(
     @SerializedName(value = "list")
     val list: List<WeatherEntity>,
     @SerializedName(value = "city")
-    val cityDetails: CityDetails
+    val cityDetailsEntity: CityDetailsEntity
 )
